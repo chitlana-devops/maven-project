@@ -30,5 +30,13 @@ agent any
       }
       }
      }
+    stage('Code Deployment to Tomcat')
+     {steps
+      {
+       sshagent(['e70bf2d3-03e0-4815-adf2-98a42b8cebe2']) {
+    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.18.182:/var/lib/tomcat/webapps'
+      }
+      }
+     }
   }
 }
