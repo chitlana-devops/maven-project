@@ -13,6 +13,7 @@ agent any
        sh'mvn compile'
       }
     }
+    }
      stage('Testing of Code')
      {steps
       {
@@ -29,6 +30,5 @@ agent any
       }
       }
      }
-    }
   }
 }
