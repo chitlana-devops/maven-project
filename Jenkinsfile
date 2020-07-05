@@ -11,8 +11,24 @@ agent any
      {
        withMaven(jdk: 'localjdk', maven: 'localmaven') {
        sh'mvn compile'
-}
+      }
     }
+     stage('Testing of Code')
+     {steps
+      {
+       withMaven(jdk: 'localjdk', maven: 'localmaven') {
+       sh'mvn test'
+      }
+      }
+     }
+     stage('Package of Code')
+     {steps
+      {
+       withMaven(jdk: 'localjdk', maven: 'localmaven') {
+       sh'mvn package'
+      }
+      }
+     }
     }
   }
 }
